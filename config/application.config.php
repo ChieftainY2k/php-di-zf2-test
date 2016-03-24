@@ -3,27 +3,29 @@
 return array(
 
     'modules' => array(
-        'DI\ZendFramework2',
         'Application',
-        'Test'
+        'Test',
+        'DI\ZendFramework2'
     ),
 
     'module_listener_options' => array(
 
         'module_paths' => array(
             './module',
-            './vendor',
+            './vendor'
         ),
 
         'config_glob_paths' => array(
-            'config/autoload/{{,*.}global,{,*.}local}.php',
+            'config/autoload/{{,*.}global,{,*.}local}.php'
         ),
 
     ),
 
     'service_manager' => array(
         'factories' => [
-            'DI\Container' => 'DI\ZendFramework2\Service\DIContainerFactory',
+            'DI\Container' => 'DI\ZendFramework2\Service\DIContainerFactory'
         ]
-    )
+    ),
+
+
 );
