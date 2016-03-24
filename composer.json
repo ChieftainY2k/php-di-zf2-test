@@ -2,7 +2,7 @@
     "name": "chieftainy2k/zf2phpditest",
     "description": "Test app",
     "type": "project",
-    "minimum-stability":"dev",
+    "minimum-stability":"stable",
     "require": {
         "php": ">=5.5",
         "zendframework/zend-mvc": "2.5",
@@ -16,6 +16,8 @@
         "zendframework/zend-http": "2.5",
         "zendframework/zend-version": "2.5",
         "zendframework/zend-config": "2.5",
-        "zendframework/zend-serializer": "2.5"
+        "zendframework/zend-serializer": "2.5",
+        "php-di/php-di": "*",
+        "php-di/zf2-bridge": "*"
     }
 }
