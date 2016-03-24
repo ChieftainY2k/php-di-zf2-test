@@ -3,9 +3,9 @@
 return array(
 
     'modules' => array(
+        'DI\ZendFramework2',
         'Application',
         'Test',
-        'DI\ZendFramework2'
     ),
 
     'module_listener_options' => array(

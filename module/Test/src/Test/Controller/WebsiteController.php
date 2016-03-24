@@ -18,10 +18,16 @@ class WebsiteController extends AbstractActionController
      */
     private $loggerService;
 
+    /**
+     * @return ViewModel
+     */
     public function indexAction()
     {
 
-        var_dump($this->loggerService); exit;
+        //$logger = new \Test\Service\MyLoggerService();  print_r($logger); exit;
+
+
+        var_dump($this->loggerService->log()); exit;
 
         $view = new ViewModel(array());
         return $view;
