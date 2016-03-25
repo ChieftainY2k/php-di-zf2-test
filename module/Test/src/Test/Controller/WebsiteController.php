@@ -13,10 +13,21 @@ class WebsiteController extends AbstractActionController
 
     /**
      * This dependency will be injected by PHP-DI
-     * @Inject
+     *
+     * @Inject("name")
      * @var \Test\Service\MyLoggerService
+     *
      */
     private $loggerService;
+
+
+    /**
+     *
+     */
+    function __construct()
+    {
+        //throw new \Exception();
+    }
 
     /**
      * @return ViewModel
@@ -24,10 +35,11 @@ class WebsiteController extends AbstractActionController
     public function indexAction()
     {
 
+        //throw new \Exception();
         //$logger = new \Test\Service\MyLoggerService();  print_r($logger); exit;
 
 
-        var_dump($this->loggerService->log()); exit;
+        echo "loggerService = "; var_dump($this->loggerService); exit;
 
         $view = new ViewModel(array());
         return $view;
