@@ -425,16 +425,16 @@
         },
         {
             "name": "php-di/zf2-bridge",
-            "version": "1.0.13",
+            "version": "1.0.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHP-DI/ZF2-Bridge.git",
-                "reference": "25a35d0ccfd1981ed85aa76631e936bc447b9b48"
+                "reference": "6b20a0cf218018094a959f7f84734fb180f4bacc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHP-DI/ZF2-Bridge/zipball/25a35d0ccfd1981ed85aa76631e936bc447b9b48",
-                "reference": "25a35d0ccfd1981ed85aa76631e936bc447b9b48",
+                "url": "https://api.github.com/repos/PHP-DI/ZF2-Bridge/zipball/6b20a0cf218018094a959f7f84734fb180f4bacc",
+                "reference": "6b20a0cf218018094a959f7f84734fb180f4bacc",
                 "shasum": ""
             },
             "require": {
@@ -462,7 +462,7 @@
             ],
             "description": "Integrates PHP-DI to Zend Framework 2",
             "homepage": "https://github.com/PHP-DI/ZF2-Bridge",
-            "time": "2016-02-09 17:09:29"
+            "time": "2016-03-27 19:43:10"
         },
         {
             "name": "zendframework/zend-cache",

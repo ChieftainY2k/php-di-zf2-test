@@ -1,0 +1,50 @@
+--- 
+- name: Prepare local machine
+  hosts: all
+  remote_user: vagrant
+  become: true
+  vars:
+    apache_vhosts:
+      - {servername: "phpdizf2test.local", documentroot: "/var/www/mysite/public", port: "80" }
+  tasks:
+    - name: setting hostname
+      hostname: name=mysite.dev
+    - name: installing screen
+      apt: name=screen state=present
+    - name: installing tools
+      apt: name=mc,joe,git,multitail state=present
+    - name: installing apache2
+      apt: name=apache2 state=present
+    - name: installing sendmail
+      apt: name=sendmail state=present
+      
+
+    - name: installing mcrypt
+      apt: name=mcrypt state=present
+    - name: installing php modules
+      apt: name=php5,php5-mcrypt,php5-curl,php5-gd,php5-cli,php5-xdebug state=present
+  
+    - name: enable apache module rewrite
+      apache2_module: name=rewrite state=present 
+    - name: enable php mcrypt module
+      shell: php5enmod mcrypt
+
+    - name: apache2 configuring port 81
+      lineinfile: dest=/etc/apache2/ports.conf regexp="^Listen 81" line="Listen 81" state=present
+    
+    - name: apache2 creating virtualhosts
+      template: src=templates/vhosts.conf.j2 dest=/etc/apache2/sites-enabled/000-default.conf
+    - name: configuring PHP xdebug
+      template: src=templates/xdebug.ini.j2 dest=/etc/php5/mods-available/xdebug.ini
+
+#    - name: configuring php.ini
+#      ini_file: backup=yes dest=/etc/php5/apache2/php.ini follow=yes section=PHP  option=short_open_tag value=On 
+
+    - name: restarting apache
+      shell: service apache2 restart
+      
+      
+      
+  handlers:
+    - name: restart apache2
+      service: name=apache2 state=restarted

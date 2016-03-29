@@ -1,0 +1,33 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure(2) do |config|
+
+    if Vagrant.has_plugin?("vagrant-hostmanager") then
+      config.hostmanager.enabled = false
+      config.hostmanager.manage_host = true
+      config.hostmanager.ignore_private_ip = false
+      config.hostmanager.include_offline = true
+    else
+      puts "Please install plugin hostmanager: $ vagrant plugin install vagrant-hostmanager"
+    end
+
+    config.vm.define "phpdizf2test" do |node|
+
+        node.vm.box = "ubuntu/trusty32"
+        node.vm.hostname = "phpdizf2test"
+
+        # config.vm.network "private_network", ip: "192.168.33.22"
+        node.vm.network "forwarded_port", guest: 80, host: 8888
+
+        node.vm.synced_folder "../../", "/var/www/mysite"
+        node.vm.provision :shell, path: "bootstrap.sh"
+
+        node.hostmanager.aliases = "phpdizf2test.local"
+
+    end
+
+
+
+
+end
