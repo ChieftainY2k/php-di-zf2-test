@@ -18,6 +18,12 @@ class WebsiteController extends AbstractActionController
      */
     private $loggerService;
 
+    public function __construct()
+    {
+         //echo __METHOD__."<br>";
+    }
+
+
     /**
      * @return ViewModel
      */
@@ -25,9 +31,8 @@ class WebsiteController extends AbstractActionController
     {
 
         //$logger = new \Test\Service\MyLoggerService();  print_r($logger); exit;
-
-
-        var_dump($this->loggerService->log()); exit;
+        //var_dump($this->loggerService); //exit;
+        $this->loggerService->log();
 
         $view = new ViewModel(array());
         return $view;

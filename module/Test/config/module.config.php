@@ -1,11 +1,14 @@
 <?php
 return array(
+
+    /*
     'controllers' => array(
         'invokables' => array(
             'Test\Controller\Website' => 'Test\Controller\WebsiteController'
         )
     ),
-    
+    */
+
     'router' => array(
         'routes' => array(
             'home' => array(
@@ -13,7 +16,7 @@ return array(
                 'options' => array(
                     'route' => '/',
                     'defaults' => array(
-                        'controller' => 'Test\Controller\Website',
+                        'controller' => 'Test\Controller\WebsiteController',
                         'action' => 'index'
                     )
                 )

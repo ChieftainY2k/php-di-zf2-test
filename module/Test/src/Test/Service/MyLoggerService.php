@@ -10,6 +10,6 @@ class MyLoggerService
      */
     public function log()
     {
-
+        echo __METHOD__." , LOGGED!";
     }
 }
